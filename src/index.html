@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app='githubViewer'>
+
+<head>
+	<meta charset='utf-8' />
+	<title>GitHub Viewer</title>
+	<link rel='stylesheet' href='/content/styles.css' />
+	<script src='https://code.angularjs.org/1.5.8/angular.js'></script>
+	<script src='https://code.angularjs.org/1.5.8/angular-route.js'></script>
+</head>
+
+<body>
+	<h1>Github Viewer</h1>
+	<div ng-view></div>
+
+	<script src='app/app.module.js'></script>
+	
+	<script src='app/service/service.module.js'></script>
+	<script src='app/service/github.js'></script>
+
+	<script src='app/main/main.module.js'></script>
+	<script src='app/main/main.js'></script>
+
+	<script src='app/user/user.module.js'></script>
+	<script src='app/user/user.js'></script>
+
+	<script src='app/repository/repository.module.js'></script>
+	<script src='app/repository/repository.js'></script>
+
+	<script src='app/router/router.module.js'></script>
+	<script src='app/router/router.js'></script>
+</body>
+</html>

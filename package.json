@@ -1,0 +1,23 @@
+{
+  "name": "GitHubViewer",
+  "version": "0.0.1",
+  "description": "AngularJS demo app",
+  "main": "index.js",
+  "homepage": "https://github.com/nikican/GitHubViewer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nikican/GitHubViewer"
+  },
+  "keywords": [
+    "AngularJS",
+    "GitHub",
+    "REST",
+    "api"
+  ],
+  "author": "Nikica Novakovic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nikican/GitHubViewer/issues"
+  },
+  "homepage": "https://github.com/nikican/GitHubViewer#readme"
+ }

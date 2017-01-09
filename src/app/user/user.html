@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<div>
+	<h1>{{vm.user.name}}</h1>
+	<h3>{{vm.error}}</h3>
+	<img ng-src='{{vm.user.avatar_url}}' title='{{vm.user.name}}'/>
+	<div>
+		Order by:
+		<select ng-model='vm.repositoriesSortOrder'>
+			<option value='+name'>Name</option>
+			<option value='-stargazers_count'>Stars</option>
+			<option value='+language'>Language</option>
+		</select>
+	</div>
+</div>
+
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Stars</th>
+			<th>Language</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat='repository in vm.repositories | orderBy:vm.repositoriesSortOrder'>
+			<td><a href='#/repository/{{vm.user.login}}/{{repository.name}}'>{{repository.name}}</a></td>
+			<td>{{repository.stargazers_count | number}}</td>
+			<td>{{repository.language}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<a href='#/main'>Back to search</a>
