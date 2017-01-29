@@ -1,33 +1,58 @@
-<!DOCTYPE html>
-<div>
-	<h1>{{vm.user.name}}</h1>
-	<h3>{{vm.error}}</h3>
-	<img ng-src='{{vm.user.avatar_url}}' title='{{vm.user.name}}'/>
+<div class="container">
 	<div>
-		Order by:
-		<select ng-model='vm.repositoriesSortOrder'>
-			<option value='+name'>Name</option>
-			<option value='-stargazers_count'>Stars</option>
-			<option value='+language'>Language</option>
-		</select>
+		<h1>{{vm.user.name}}</h1>
+		<h3>{{vm.error}}</h3>
+		<img ng-src='{{vm.user.avatar_url}}' title='{{vm.user.name}}' />
 	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4>{{vm.user.name | possessive}} repos </h4>
+			<form>
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon"><i class="fa fa-search"></i></div>
+						<input type="text" class="form-control" placeholder="Search repo" ng-model="vm.searchRepo">
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<table class="table  table-bordered table-striped">
+			<thead>
+				<tr>
+					<td>
+						<a href ng-click="vm.sortByName()">
+							Name 
+							<span ng-show="vm.sortField == 'name' && !vm.sortReverse" class="fa fa-caret-down"></span>
+							<span ng-show="vm.sortField == 'name' && vm.sortReverse" class="fa fa-caret-up"></span>
+						</a>
+					</td>
+					<td>
+						<a href ng-click="vm.sortByStargazersCount()">
+							Stars 
+							<span ng-show="vm.sortField == 'stargazers_count' && !vm.sortReverse" class="fa fa-caret-down"></span>
+							<span ng-show="vm.sortField == 'stargazers_count' && vm.sortReverse" class="fa fa-caret-up"></span>
+						</a>
+					</td>
+					<td>
+						<a href ng-click="vm.sortByLanguage()">
+							Language 
+							<span ng-show="vm.sortField == 'language' && !vm.sortReverse" class="fa fa-caret-down"></span>
+							<span ng-show="vm.sortField == 'language' && vm.sortReverse" class="fa fa-caret-up"></span>
+						</a>
+					</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat='repository in vm.repositories | orderBy:vm.sortField:vm.sortReverse |filter:vm.searchRepo'>
+					<td><a href='#/repository/{{vm.user.login}}/{{repository.name}}'>{{repository.name}}</a></td>
+					<td>{{repository.stargazers_count | number}}</td>
+					<td>{{repository.language}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<a href='#/main'>Back to search</a>
 </div>
-
-<table>
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Stars</th>
-			<th>Language</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr ng-repeat='repository in vm.repositories | orderBy:vm.repositoriesSortOrder'>
-			<td><a href='#/repository/{{vm.user.login}}/{{repository.name}}'>{{repository.name}}</a></td>
-			<td>{{repository.stargazers_count | number}}</td>
-			<td>{{repository.language}}</td>
-		</tr>
-	</tbody>
-</table>
-
-<a href='#/main'>Back to search</a>
