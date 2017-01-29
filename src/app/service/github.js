@@ -1,4 +1,4 @@
-(function() {
+(function () {
 	'use strict';
 
 	angular
@@ -21,7 +21,7 @@
 			console.log('url', url);
 
 			return $http.get(url)
-				.then(function(response) {
+				.then(function (response) {
 					return response.data;
 				});
 		}
@@ -31,7 +31,7 @@
 			console.log('url', url);
 
 			return $http.get(url)
-				.then(function(response) {
+				.then(function (response) {
 					return response.data;
 				});
 		}
@@ -41,7 +41,7 @@
 			console.log('url', url);
 
 			return $http.get(url)
-				.then(function(response) {
+				.then(function (response) {
 					return response.data;
 				});
 		}
@@ -51,9 +51,9 @@
 			console.log('url', url);
 
 			return $http.get(url)
-				.then(function(response) {
+				.then(function (response) {
 					return response.data;
 				});
 		}
 	};
-}());
+} ());

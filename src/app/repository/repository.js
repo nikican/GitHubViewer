@@ -1,4 +1,4 @@
-(function() {
+(function () {
 	'use strict';
 
 	angular
@@ -40,4 +40,4 @@
 			vm.error = 'Could not fetch collaborators';
 		};
 	}
-}())
+} ());
