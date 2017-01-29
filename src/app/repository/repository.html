@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<h2>{{vm.repository.name}}</h2>
-<p>Open issues: {{vm.repository.open_issues_count}}</p>
+<div class="container">
+	<h2>{{vm.repository.name}}</h2>
+	<p>Open issues: {{vm.repository.open_issues_count}}</p>
 
-<ul>
-	<li ng-repeat='collaborator in vm.collaborators  | orderBy:"login"'>
-		<img ng-src='{{collaborator.avatar_url}}' /> {{collaborator.login}}
-	</li>
-</ul>
+	<div class="row">
+		<div ng-repeat='collaborator in vm.collaborators  | orderBy:"+login"'>
+			<gh-collaborator-thumbnail collaborator="collaborator" />
+		</div>
+	</div>
+</div>

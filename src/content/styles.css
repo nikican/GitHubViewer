@@ -1,1 +1,7 @@
-﻿
+﻿.caption h3{
+	margin-top: 10px;
+
+}
+.caption p{
+	margin-bottom: 0;
+}
