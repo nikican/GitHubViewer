@@ -1,4 +1,4 @@
-(function() {
+(function () {
 	'use strict';
 
 	angular.module('githubViewer', [
@@ -6,6 +6,7 @@
 		'app.router',
 		'app.main',
 		'app.user',
-		'app.repository'
+		'app.repository',
+		'app.filter'
 	]);
 })();
