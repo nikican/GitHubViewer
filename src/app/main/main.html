@@ -1,11 +1,12 @@
 <div class="container">
-	<p>{{vm.countdown}}</p>
-	<form name='searchUser' ng-submit='vm.searchForUser(vm.username)'>
-		<div class="form-group">
+	<form name='searchUserForm' ng-submit='vm.searchForUser(vm.username)'>
+		<div class="form-group" ng-class="{ 'has-error' : searchUserForm.username.$invalid && !searchUserForm.username.$pristine }">
 			<label for="username">GitHub username</label>
-			<input type="text" class="form-control" id="username" placeholder="Enter username" ng-model='vm.username' required>
+			<input type="text" class="form-control" id="username" name="username" placeholder="Enter username" ng-model='vm.username'
+				required>
+			<p ng-show="searchUserForm.username.$invalid && !searchUserForm.username.$pristine" class="help-block">Username is required.</p>
 		</div>
 
-		<button type="submit" class="btn btn-primary">Search</button>
+		<button type="submit" class="btn btn-primary" ng-disabled="searchUserForm.$invalid">Search</button>
 	</form>
 </div>
