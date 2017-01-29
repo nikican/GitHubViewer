@@ -1,7 +1,11 @@
-<div>
+<div class="container">
 	<p>{{vm.countdown}}</p>
 	<form name='searchUser' ng-submit='vm.searchForUser(vm.username)'>
-		<input type='text' palceholder='username to find' required='required' ng-model='vm.username' />
-		<input type='submit' value='Search' />
+		<div class="form-group">
+			<label for="username">GitHub username</label>
+			<input type="text" class="form-control" id="username" placeholder="Enter username" ng-model='vm.username' required>
+		</div>
+
+		<button type="submit" class="btn btn-primary">Search</button>
 	</form>
 </div>
