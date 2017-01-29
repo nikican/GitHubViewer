@@ -5,3 +5,16 @@
 .caption p{
 	margin-bottom: 0;
 }
+
+.thumbnail img {
+	min-height: 100px;
+} 
+
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+    display: none;
+}
