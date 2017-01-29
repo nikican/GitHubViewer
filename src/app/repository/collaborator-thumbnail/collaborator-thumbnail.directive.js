@@ -20,7 +20,15 @@
         return directive;
     }
 
-    function CollaboratorThumbnailController() {
+    CollaboratorThumbnailController.$inject = ['$location'];
+
+    function CollaboratorThumbnailController($location) {
         var vm = this;
+        vm.searchForUser = searchForUser;
+
+        function searchForUser() {
+
+            $location.path('/user/' + vm.collaborator.login);
+        }
     }
 })();
